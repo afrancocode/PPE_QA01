@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using Ninject;
 using System.Web.Mvc;
+using Estimator.Repository.Concrete;
+
 
 namespace Estimator.WebUI.Infrastructure
 {
