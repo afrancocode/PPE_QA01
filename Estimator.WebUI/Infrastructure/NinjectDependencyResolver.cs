@@ -1,6 +1,6 @@
 ﻿using Estimator.Model.Entities;
 using Estimator.Model.Abstract;
-using Estimator.Model.Concrete;
+using Estimator.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
