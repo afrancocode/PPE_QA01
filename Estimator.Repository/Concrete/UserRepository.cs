@@ -12,5 +12,24 @@ namespace Estimator.Repository.Concrete
         {
             get { return userContext.Users; }
         }
+        public void SaveUser(User user)
+        {
+            if (user.Id == 0)
+            {
+                userContext.Users.Add(user);
+            }
+            else
+            {
+                User dbEntry = userContext.Users.Find(user.Id);
+                if (dbEntry != null)
+                {
+                    dbEntry.Login = user.Login;
+                    dbEntry.Name = user.Name;
+                    dbEntry.Password = user.Password;
+                    dbEntry.Role = user.Role;
+                }
+            }
+            userContext.SaveChanges();
+        }
     }
 }

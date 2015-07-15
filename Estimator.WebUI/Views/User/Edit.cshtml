@@ -21,13 +21,13 @@
                 {
                     <div class="form-group">
                         <label>@(property.PropertyName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "Name")
+                        @if (property.PropertyName != "Role")
                         {
                             @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 1 })
                         }
                         else
                         {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            @property.PropertyName
                         }
                     </div>
                 }

@@ -9,6 +9,8 @@ namespace Estimator.Model.Abstract
     public interface IUserRepository
     {
         IEnumerable<User> Users { get; }
+
+        void SaveUser(User user);
     }
 
 }

@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using Estimator.Model.Entities;
 using Estimator.Model.Abstract;
-using Estimator.Repository.Concrete;
 
 namespace Estimator.WebUI.Controllers
 {
