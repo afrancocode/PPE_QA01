@@ -1,0 +1,14 @@
+﻿@model Estimator.Model.Entities.User
+
+@{
+    ViewBag.Title = "Edit:" + Model.Name;
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Edit @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()<input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to Users List", "UserList")
+}
