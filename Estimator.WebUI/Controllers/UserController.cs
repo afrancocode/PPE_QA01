@@ -18,9 +18,9 @@ namespace Estimator.WebUI.Controllers
 		{
 			return View(userCollection.Users);
 		}
-        public ViewResult Edit(int UserId)
+        public ViewResult Edit(int id)
         {
-            User user = userCollection.Users.FirstOrDefault(p => p.Id == UserId);
+            User user = userCollection.Users.FirstOrDefault(p => p.Id == id);
             return View(user);
         }
 	}
