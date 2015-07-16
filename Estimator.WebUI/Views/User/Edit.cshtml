@@ -23,7 +23,7 @@
                         <label>@(property.PropertyName ?? property.PropertyName)</label>
                         @if (property.PropertyName != "Role")
                         {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 1 })
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control", rows = 1 })
                         }
                         else
                         {
