@@ -19,16 +19,17 @@
                 <th class="text-center">Name</th>
                 <th class="text-center">Password</th>
                 <th class="text-center">Role</th>
+                <th class="text-center">Action</th>
             </tr>
             @foreach (var item in Model)
             {
                 <tr>
                     <td class="text-right">@item.Id</td>
+                    <td class="text-center">@item.Login</td>
                     <td class="text-center">@item.Name</td>
                     <td class="text-center">@item.Password</td>
                     <td class="text-center">@item.Role</td>
-                    <td class="text-center">Action</td>
-                    <td>
+                    <td class="text-center">
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                     </td>
