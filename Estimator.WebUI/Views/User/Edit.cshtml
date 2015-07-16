@@ -23,11 +23,11 @@
                         <label>@(property.PropertyName ?? property.PropertyName)</label>
                         @if (property.PropertyName != "Role")
                         {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
                         }
                         else
                         {
-                            @property.PropertyName
+                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", @readonly = "readonly" })
                         }
                     </div>
                 }
