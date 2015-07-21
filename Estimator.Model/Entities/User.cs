@@ -14,6 +14,7 @@ namespace Estimator.Model.Entities
 		[Required(ErrorMessage="Please provide a valid Login", AllowEmptyStrings=false)]
 		[Display(Name="User Name:")]
         public string Login { get; set; }
+        [Required(ErrorMessage = "Please provide a valid Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
 		[Required(ErrorMessage="Please provide password",AllowEmptyStrings=false)]
 		[DataType(DataType.Password)]

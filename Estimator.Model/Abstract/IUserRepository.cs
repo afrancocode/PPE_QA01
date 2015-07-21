@@ -11,6 +11,8 @@ namespace Estimator.Model.Abstract
         IEnumerable<User> Users { get; }
 
         void SaveUser(User user);
+
+        void DeleteUser(int id);
     }
 
 }

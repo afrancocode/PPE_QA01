@@ -11,7 +11,7 @@
         <h3>Edit @Model.Name</h3>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "User"))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.Id)
@@ -29,6 +29,7 @@
                         {
                             @Html.TextBoxFor(m => m.Role, new { @class = "form-control", @readonly = "readonly" })
                         }
+                        @Html.ValidationMessage(property.PropertyName)
                     </div>
                 }
             }

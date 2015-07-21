@@ -36,6 +36,13 @@ namespace Estimator.Repository.Concrete
                 }
             }
         }
+
+        public void DeleteUser(int id)
+        {
+            User dbEntry = userContext.Find(x => x.Id == id);
+            userContext.Remove(dbEntry);
+        }
+    }
     }
 
 
@@ -69,4 +76,3 @@ namespace Estimator.Repository.Concrete
     //        userContext.SaveChanges();
     //    }
     //}
-}
