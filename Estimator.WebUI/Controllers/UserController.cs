@@ -25,12 +25,6 @@ namespace Estimator.WebUI.Controllers
             return View(user);
         }
 
-        //public ViewResult Delete(int id)
-        //{
-        //    User user = userCollection.Users.FirstOrDefault(p => p.Id == id);
-        //    return View(user);
-        //}
-
         [HttpPost]
         public ActionResult Edit(User user)
         {
@@ -51,6 +45,11 @@ namespace Estimator.WebUI.Controllers
             userCollection.DeleteUser(id);
             TempData["message"] = string.Format("User successfully deleted");
             return RedirectToAction("UserList");
+        }
+
+        public ViewResult AddUser()
+        {
+            return View("AddUser", new User());
         }
     }
 }

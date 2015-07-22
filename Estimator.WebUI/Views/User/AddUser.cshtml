@@ -1,0 +1,44 @@
+﻿@model Estimator.Model.Entities.User
+
+@{
+    ViewBag.Title = "Add new user";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel">
+    <hr />
+    <div class="panel-heading">
+        <h3>Add new user</h3>
+    </div>
+
+    @using (Html.BeginForm("Edit", "User"))
+    {
+        <div class="panel-body">
+          @foreach (var property in ViewData.ModelMetadata.Properties)
+          {
+              if (property.PropertyName != "Id")
+              {
+                    <div class="form-group">
+                        <label>@(property.PropertyName ?? property.PropertyName)</label>
+                        @if (property.PropertyName != "Password")
+                        {
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        }
+                        else
+                        {
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        }
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+        </div>
+
+
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="bnt btn-primary" />
+            @Html.ActionLink("Cancel and return to Users", "UserList", null, new { @class = "btn btn-default" })
+        </div>
+    }
+
+</div>

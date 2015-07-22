@@ -14,5 +14,4 @@ namespace Estimator.Model.Abstract
 
         void DeleteUser(int id);
     }
-
 }
