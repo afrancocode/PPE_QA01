@@ -29,6 +29,7 @@ namespace Estimator.WebUI.Controllers
 				{
 					Session["UserID"] = v_user.Id;
 					Session["UserName"] = v_user.Name;
+					FormsAuthentication.SetAuthCookie(u.Login, false);
 					return RedirectToAction("Index", "Home");
 				}
 				else
