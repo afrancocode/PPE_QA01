@@ -5,9 +5,9 @@ using Estimator.Model.Entities;
 
 namespace Estimator.WebUI.Controllers
 {
-	[Authorize]
-	//[Authorize(Users= "Lina")]
-	public class UserController : Controller
+    [Authorize]
+    //[Authorize(Users = "Lina")]
+    public class UserController : Controller
 	{
 		private IUserRepository userCollection;
 

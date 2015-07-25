@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using Estimator.Model.Entities;
 using Estimator.Model.Abstract;
+using System.Web.Security;
+using Estimator.WebUI.Models;
 
 namespace Estimator.WebUI.Controllers
 {
@@ -20,7 +22,7 @@ namespace Estimator.WebUI.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Login(User u)
+		public ActionResult Login(LoginViewModel u)
 		{
 			if (ModelState.IsValid)
 			{

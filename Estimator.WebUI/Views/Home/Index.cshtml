@@ -8,6 +8,7 @@
     <hr />
     <div class="panel-heading">
         <h2>@Html.ActionLink("Welcome to Propricer Estimator","Login","Account")</h2>
+        <div>Welcome: @HttpContext.Current.Session["UserName"].ToString()</div>
     </div>
 </div>
 
