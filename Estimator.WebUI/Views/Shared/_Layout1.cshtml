@@ -26,17 +26,12 @@
             </div>
         </nav>
     </div>
-    <hr/>
-    <hr/>
-    <div class="row panel">
-        <div id="menuitems" class="col-xs-3">
-            @Html.Action("Menu", "Nav")
-        </div>
-        <div>
-            @RenderBody()
-        </div>
+    <div>
+        @RenderBody()
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
     </div>
 </body>
 </html>
-
-

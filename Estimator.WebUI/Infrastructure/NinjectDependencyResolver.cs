@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using Ninject;
 using System.Web.Mvc;
+using Estimator.WebUI.Infrastructure.Abstract;
+using Estimator.WebUI.Infrastructure.Concrete;
 
 
 namespace Estimator.WebUI.Infrastructure
@@ -32,6 +34,8 @@ namespace Estimator.WebUI.Infrastructure
 		private void AddBindings()
 		{
 			kernel.Bind<IUserRepository>().To<UserRepository>().InSingletonScope();
+			kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+		
 		}
 	}
 }

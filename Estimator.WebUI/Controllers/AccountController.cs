@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using Estimator.Model.Entities;
 using Estimator.Model.Abstract;
+using Estimator.WebUI.Infrastructure.Abstract;
+using Estimator.WebUI.Infrastructure.Concrete;
 using System.Web.Security;
 using Estimator.WebUI.Models;
 
@@ -10,9 +12,12 @@ namespace Estimator.WebUI.Controllers
 	public class AccountController : Controller
 	{
 		private IUserRepository userCollection;
-		public AccountController(IUserRepository userRepository)
+		private IAuthProvider authorize;
+
+		public AccountController(IUserRepository userRepository, IAuthProvider authorize)
 		{
 			this.userCollection = userRepository;
+			this.authorize = authorize;
 		}
 
 		// GET: Login
@@ -26,12 +31,10 @@ namespace Estimator.WebUI.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var v_user = userCollection.Users.Where(c => c.Login.Equals(u.Login) && c.Password.Equals(u.Password)).FirstOrDefault();
-				if (v_user != null)
+				bool v_user = authorize.Authenticate(u.Login, u.Password);
+				if (v_user)
 				{
-					Session["UserID"] = v_user.Id;
-					Session["UserName"] = v_user.Name;
-					FormsAuthentication.SetAuthCookie(u.Login, false);
+					Session["UserName"] = u.Login;
 					return RedirectToAction("Index", "Home");
 				}
 				else
@@ -44,6 +47,8 @@ namespace Estimator.WebUI.Controllers
 
 		public ActionResult Logout()
 		{
+			System.Web.Security.FormsAuthentication.SignOut();
+			Session.Abandon();
 			return RedirectToAction("Index", "Home");
 		}
 	}
