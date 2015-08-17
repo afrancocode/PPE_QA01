@@ -27,7 +27,7 @@
                         }
                         else
                         {
-                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.TextBoxFor(m => m.Role.Name, new { @class = "form-control", @readonly = "readonly" })
                         }
                         @Html.ValidationMessage(property.PropertyName)
                     </div>

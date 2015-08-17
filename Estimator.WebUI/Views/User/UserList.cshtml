@@ -24,7 +24,7 @@
                     <td class="text-center">@item.Login</td>
                     <td class="text-center">@item.Name</td>
                     <td class="text-center">@item.Password</td>
-                    <td class="text-center">@item.Role</td>
+                    <td class="text-center">@item.Role.Name</td>
                     <td class="text-center">
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
