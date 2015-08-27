@@ -34,7 +34,6 @@ namespace Estimator.WebUI.Controllers
 				bool v_user = authorize.Authenticate(u.Login, u.Password);
 				if (v_user)
 				{
-					Session["UserName"] = u.Login;
 					return RedirectToAction("Index", "Home");
 				}
 				else
